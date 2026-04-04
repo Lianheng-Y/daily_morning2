@@ -97,10 +97,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "value": "{} {}".format(today, week),
                 "color": "#00FFFF"
             },
-            "city": {
-                "value": city_name,
-                "color": "#808A87"
-            },
+            # "city": {
+            #     "value": city_name,
+            #     "color": "#808A87"
+            # },
             "weather": {
                 "value": weather,
                 "color": "#ED9121"
@@ -154,4 +154,4 @@ if __name__ == '__main__':
     # 公众号推送消息
     for user_id in user_ids:
         print('正在发送给 %s' % (user_id))
-        send_message(user_id, accessToken, city, weather, max_temperature, min_temperature)
+        send_message(user_id, accessToken, weather, max_temperature, min_temperature)
