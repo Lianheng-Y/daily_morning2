@@ -46,9 +46,9 @@ def get_weather(province, city):
 def get_one():
 
     words = requests.get("https://api.shadiao.pro/chp")
-  if words.status_code != 200:
-    return get_one()
-  return words.json()['data']['text']
+    if words.status_code != 200:
+        return get_one()
+    return words.json()['data']['text']
     # url = "http://www.wufazhuce.com/"
     # response = get(url)
     # response.encoding = "utf-8"
