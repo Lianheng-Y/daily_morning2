@@ -1,6 +1,7 @@
 from time import time, localtime
 import cityinfo
 import config
+import requests
 from requests import get, post
 from datetime import datetime, date
 
@@ -45,16 +46,16 @@ def get_weather(province, city):
 
 def get_one():
 
-    # words = requests.get("https://api.shadiao.pro/chp")
-    # if words.status_code != 200:
-    #     return get_one()
-    # return words.json()['data']['text']
-    url = "https://api.shadiao.pro/chp"
-    response = get(url)
-    response.encoding = "utf-8"
-    response_data = response.text.split("fp-one-cita-wrapper")[1].split("fp-one-cita")[1].split(">")[2].split("<")[0]
-    print(response_data)
-    return response_data
+    words = requests.get("https://api.shadiao.pro/chp")
+    if words.status_code != 200:
+        return get_one()
+    return words.json()['data']['text']
+    # url = "https://api.shadiao.pro/chp"
+    # response = get(url)
+    # response.encoding = "utf-8"
+    # response_data = response.text.split("fp-one-cita-wrapper")[1].split("fp-one-cita")[1].split(">")[2].split("<")[0]
+    # print(response_data)
+    # return response_data
 
 
 def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature):
